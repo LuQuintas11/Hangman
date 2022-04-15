@@ -9,17 +9,14 @@ li{
     display: none;
 }
 
-button{
-    font-size: 50px;
-}
-
 #button{
-    background-color: rgb(56, 56, 56);
-    font-size: large;
-    width: 50%;
     position: absolute;
     bottom: 0;
     left: 400px;
+}
+
+.alphabet{
+    background-color: rgb(230, 230, 230);
 
 }
 

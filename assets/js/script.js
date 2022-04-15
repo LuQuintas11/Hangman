@@ -1,3 +1,7 @@
+document.addEventListener("DOMContentLoaded", function(){
+   console.log("hola")
+});
+
 let words = ["deny", "hello", "dog", "cat"];
 let alphabet= ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z',];
 let word = words[Math.floor(Math.random()*words.length )]
@@ -13,27 +17,49 @@ function checkLetter(){
  
   
 }
-checkLetter()
+checkLetter();
 
 function createAlphabet(){
- 
- for(let i=0; i<alphabet.length;i++){
- let createButton = document.createElement("button");
- let button = document.getElementById("button");
- createButton.innerHTML = alphabet[i]
- button.appendChild(createButton);
+  for(let i=0; i<alphabet.length;i++){
+    let createButton = document.createElement("button");
+    let div= document.getElementById("button");
+    div.appendChild(createButton)
+    createButton.className="alphabet";
+    createButton.innerHTML = alphabet[i];
    
- }
-  
+  }
 }
-
 createAlphabet();
 
 
-
-
-function userInput(){
-
-
-
+for(let i=0; i<alphabet.length;i++){
+   let alpha = document.getElementsByClassName("alphabet")[i];
+   alpha.addEventListener("click", function(event){
+      console.log(event.target)
+      let alphabetValue = alphabet[i];
+      if(word.indexOf(alphabetValue)){
+         for(let i =0; i,word.length; i++){
+            if(word[i]===alphabetValue){
+               console.log("has ganado")
+            }
+         }
+      }
+   })
 }
+
+// .forEach(alphabet => {
+//     alphabet.addEventListener("click", function(event) {
+//         var alphabet = event.target;
+//         var alphabetValue = alphabet.textContent;
+
+//         if (word.contains(alphabetValue)) {
+//             for (var i=0; i<word.length; i++) {
+//                 if (word[i] == alphabetValue) {
+//                     document.getElementById("main-div").childNodes[i].textContent = alphabetValue;
+//                 }
+//             }
+//         } else {
+//             alphabet.disable = true;
+//         }
+//     })
+// });
