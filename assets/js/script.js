@@ -6,7 +6,7 @@ let word = words[Math.floor(Math.random()*words.length )]
 function checkLetter(){
  for(let i=0; i<word.length;i++){
     let board = document.createElement('li');
-    board.textContent=word[i];
+    board.textContent= "_";
     board.className = "blah";
     document.getElementById('main-div').appendChild(board);
  } 
