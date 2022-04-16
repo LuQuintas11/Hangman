@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", function(){
 });
 
 let words = ["DENY", "HELLO", "DOG", "CAT"];
-
+let liveSpan=document.querySelector(".lives")
 let alphabet= ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z',];
 let word = words[Math.floor(Math.random()*words.length )]
 console.log(word)
@@ -34,6 +34,17 @@ function createAlphabet(){
 createAlphabet();
 
 
+lives=5;
+function decreaseLifes(){
+   lives--;
+   liveSpan.textContent = lives;
+   if(lives===0){
+     let game= prompt("Do you want to play again?")
+   if(game=""){alert ("User cancelled the prompt.");}else{alert("hola")}
+   }
+}
+
+
 for(let i=0; i<alphabet.length;i++){
    let alpha = document.getElementsByClassName("alphabet")[i];
    alpha.addEventListener("click", function(event){
@@ -46,7 +57,7 @@ for(let i=0; i<alphabet.length;i++){
             document.getElementById("main-div").childNodes[i].textContent=alphabetValue
           }
        } 
-    }else{alert("your loose")}
+    }else{decreaseLifes()}
  
    })
 }
