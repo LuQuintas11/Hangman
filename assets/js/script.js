@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function(){
-   console.log("hola")
+   console.log("DOM is loaded")
 });
 
 let words = ["DENY", "HELLO", "DOG", "CAT"];
@@ -40,11 +40,11 @@ function decreaseLifes(){
    liveSpan.textContent = lives;
    if(lives===0){
      let game= prompt("Do you want to play again?")
-   if(game=""){alert ("User cancelled the prompt.");}else{alert("hola")}
+   if(game=""){alert ("User cancelled the prompt.");}else{runGame()}
    }
 }
 
-
+function runGame(){
 for(let i=0; i<alphabet.length;i++){
    let alpha = document.getElementsByClassName("alphabet")[i];
    alpha.addEventListener("click", function(event){
@@ -60,4 +60,4 @@ for(let i=0; i<alphabet.length;i++){
     }else{decreaseLifes()}
  
    })
-}
+}}
