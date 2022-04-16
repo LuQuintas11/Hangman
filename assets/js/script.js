@@ -5,10 +5,18 @@ document.addEventListener("DOMContentLoaded", function(){
 let words = ["DENY", "HELLO", "DOG", "CAT"];
 let liveSpan=document.querySelector(".lives")
 let alphabet= ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z',];
-let word = words[Math.floor(Math.random()*words.length )]
+let word= words[Math.floor(Math.random()*words.length )]
 console.log(word)
 // *this function will check the amount of letters and create the spaces*/
-function checkLetter(){
+
+function runGame(){
+   window.location.reload();
+
+}
+
+
+
+function createSpaces(){
  for(let i=0; i<word.length;i++){
     let board = document.createElement('li');
     board.textContent= "__";
@@ -16,10 +24,11 @@ function checkLetter(){
     board.className = "blah";
     document.getElementById('main-div').appendChild(board);
  } 
- 
-  
+   
 }
-checkLetter();
+createSpaces();
+
+
 
 function createAlphabet(){
   for(let i=0; i<alphabet.length;i++){
@@ -34,23 +43,14 @@ function createAlphabet(){
 createAlphabet();
 
 
-lives=5;
-function decreaseLifes(){
-   lives--;
-   liveSpan.textContent = lives;
-   if(lives===0){
-     let game= prompt("Do you want to play again?")
-   if(game=""){alert ("User cancelled the prompt.");}else{runGame()}
-   }
-}
 
-function runGame(){
+
+function checkLetter(){
 for(let i=0; i<alphabet.length;i++){
    let alpha = document.getElementsByClassName("alphabet")[i];
    alpha.addEventListener("click", function(event){
       event.target
       let alphabetValue = alphabet[i];
-   // console.log(alphabetValue);
     if(word.includes(alphabetValue)){
        for(let i =0; i<word.length; i++){
           if(word[i]===alphabetValue){
@@ -61,3 +61,19 @@ for(let i=0; i<alphabet.length;i++){
  
    })
 }}
+checkLetter()
+
+
+lives=5;
+function decreaseLifes(){
+   lives--;
+   liveSpan.textContent = lives;
+   if(lives===0){
+     let game= prompt("Do you want to play again?")
+   if(game=""){alert ("User cancelled the prompt.");}else{lives=5
+                                                       runGame()  }
+   }
+}
+
+
+ 
