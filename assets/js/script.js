@@ -2,12 +2,26 @@ document.addEventListener("DOMContentLoaded", function(){
    console.log("DOM is loaded")
 });
 
+let modalBtn = document.querySelector(".modal-btn");
+let modalBg = document.querySelector(".modal-bg")
+let modalClose = document.querySelector(".modal-close")
 let words = ["DENY", "HELLO", "DOG", "CAT"];
 let liveSpan=document.querySelector(".lives")
 let alphabet= ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z',];
 let word= words[Math.floor(Math.random()*words.length )]
 console.log(word)
 // *this function will check the amount of letters and create the spaces*/
+
+
+
+modalBtn.addEventListener("click", function(){
+   modalBg.classList.add("bg-active")
+})
+
+modalClose.addEventListener("click", function(){
+   modalBg.classList.remove("bg-active")
+   window.location.reload();
+})
 
 function runGame(){
    window.location.reload();
