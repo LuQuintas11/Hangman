@@ -14,9 +14,7 @@ console.log(word)
 
 
 
-modalBtn.addEventListener("click", function(){
-   modalBg.classList.add("bg-active")
-})
+
 
 modalClose.addEventListener("click", function(){
    modalBg.classList.remove("bg-active")
@@ -24,7 +22,9 @@ modalClose.addEventListener("click", function(){
 })
 
 function runGame(){
-   window.location.reload();
+ 
+      modalBg.classList.add("bg-active")
+   
 
 }
 
@@ -83,9 +83,8 @@ function decreaseLifes(){
    lives--;
    liveSpan.textContent = lives;
    if(lives===0){
-     let game= prompt("Do you want to play again?")
-   if(game=""){alert ("User cancelled the prompt.");}else{lives=5
-                                                       runGame()  }
+     runGame() 
+   ilives=5;
    }
 }
 
