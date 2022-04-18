@@ -66,3 +66,39 @@ li{
 .modal-close{
     cursor: pointer;
 }
+
+.modal-bj{
+    position: fixed;
+    top:0;
+    left:0;
+    width: 100%;
+    height: 100vh;
+    background-color:rgb(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s opacity 0,5s;
+}
+
+ .bj-active{
+    visibility: visible;
+    opacity: 1;
+} 
+
+.modaj{
+    background-color: rgb(11, 104, 47);
+    width: 30%;
+    height: 30%;
+    text-align: center;
+}
+
+
+.modaj h2{
+    padding-top: 40px;
+}
+
+.modal-clos{
+    cursor: pointer;
+}
