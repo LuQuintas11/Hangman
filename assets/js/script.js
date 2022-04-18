@@ -2,13 +2,14 @@
 
 document.addEventListener("DOMContentLoaded", function(){
    console.log("DOM is loaded")
+   modalBj.classList.add("bj-active")
  
 });
 let modalBg = document.querySelector(".modal-bg");
 let modalClose = document.querySelector(".modal-close");
 
  let modalBj = document.querySelector(".modal-bj");
-//  let modalClos = document.querySelector(".modal-clos");
+ let modalClos = document.querySelector(".modal-clos");
 //  let modalBtn = document.querySelector(".modal-btn")
 let words = ["DENY", "HELLO", "DOG", "CAT"];
 let liveSpan=document.querySelector(".lives")
@@ -16,10 +17,6 @@ let alphabet= ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','
 let word= words[Math.floor(Math.random()*words.length )]
 console.log(word)
 // *this function will check the amount of letters and create the spaces*/
-
-if(document.readyState === "complete") {
-   modalBj.classList.add("bj-active")
-}
 
 
 modalClose.addEventListener("click", function(){
