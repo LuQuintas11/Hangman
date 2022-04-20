@@ -1,18 +1,21 @@
 let modalBg = document.querySelector(".modal-bg");
 let modalClose = document.querySelector(".modal-close");
-let j= [];
+
 let modalBj = document.querySelector(".modal-bj");
 let animals = document.querySelector("#animals");
-//  let modalBtn = document.querySelector(".modal-btn")
-let words = ["DENY", "HELLO", "DOG", "CAT"];
-let wordAnimal = ["CAT", "RABBIT", "LION"];
-let wordCinema = ["STAR WARS", "BATMAN", "THE KING lion"]
+
+let words = ["FOOTBALL", "BOXING", "CYCLING", "SWIMMING", "TENNIS", "CLIMBING", "BASKETBALL", "ATHLETICS", "BADMINTON"];
+let wordAnimal = ["CAT", "RABBIT", "LION", "ZEBRA", "HORSE", "TIGER", "BEAR", "FROG", "FROG", "MONKEY", "SNAKE"];
+let wordCinema = ["STAR-WARS", "BATMAN", "THE KING", "JUMANJI", "SPIDERMAN", "VENOM", "FROZEN", "HARRY POTTER"]
+
+let pushAlphabet = [];
+
 let liveSpan = document.querySelector(".lives")
 let alphabet = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', ];
 let wordsSports = words[Math.floor(Math.random() * words.length)]
 let wordsAnimals = wordAnimal[Math.floor(Math.random() * wordAnimal.length)]
-
-// *this function will check the amount of letters and create the spaces*/
+let wordsCinema = wordCinema[Math.floor(Math.random()*wordCinema.length)]
+console.log(wordsCinema)
 
 
 function createAlphabet() {
@@ -41,7 +44,7 @@ document.addEventListener("DOMContentLoaded", function () {
             wordSport()
          } else if (this.getAttribute("data-type") === "cinema") {
             modalBj.classList.remove("bj-active")
-            wordsCinema()
+            wordCinemas()
 
          }
       })
@@ -79,7 +82,10 @@ function wordSport() {
             for (let i = 0; i < wordsSports.length; i++) {
                if (wordsSports[i] === alphabetValue) {
                 document.getElementById("main-div").childNodes[i].textContent = alphabetValue  
-         
+               pushAlphabet.push("alphabetValue")
+               if(wordsSports.length===pushAlphabet.length){
+                   console.log("hola")
+               }
                }
             }
          } else {
@@ -90,7 +96,7 @@ function wordSport() {
    }
 }
 
-wordSport()
+
 
 
 function animalGame() {
@@ -109,7 +115,10 @@ function animalGame() {
             for (let i = 0; i < wordsAnimals.length; i++) {
                if (wordsAnimals[i] === alphabetValue) {
                   document.getElementById("main-div").childNodes[i].textContent = alphabetValue
-
+                  pushAlphabet.push("alphabetValue")
+               if(wordsAnimals.length === pushAlphabet.length){
+                  alert("you won")
+               }
                }
             }
          } else {
@@ -120,8 +129,8 @@ function animalGame() {
    }
 }
 
-function wordsCinema() {
-   for (let i = 0; i < wordCinema.length; i++) {
+function wordCinemas() {
+   for (let i = 0; i < wordsCinema.length; i++) {
       let board = document.createElement('li');
       board.textContent = "__";
       board.className = "blah";
@@ -132,11 +141,14 @@ function wordsCinema() {
       alpha.addEventListener("click", function (event) {
          event.target
          let alphabetValue = alphabet[i];
-         if (wordCinema.includes(alphabetValue)) {
-            for (let i = 0; i < wordCinema.length; i++) {
-               if (wordCinema[i] === alphabetValue) {
+         if (wordsCinema.includes(alphabetValue)) {
+            for (let i = 0; i < wordsCinema.length; i++) {
+               if (wordsCinema[i] === alphabetValue) {
                   document.getElementById("main-div").childNodes[i].textContent = alphabetValue
-                alert("hola")
+                  pushAlphabet.push("alphabetValue")
+                  if(wordsCinema.length===pushAlphabet.length){
+                      console.log("hola")
+                  }
                }
             }
          } else {

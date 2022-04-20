@@ -1,8 +1,9 @@
-body{
-    background:url("../image/dominatehangman-1600.jpg");
-    
-   
+#img{
+    /* background:url("../image/dominatehangman-1600.jpg"); */
+    width: 50%;  
 }
+
+
 
 li{
     list-style-type:none;
