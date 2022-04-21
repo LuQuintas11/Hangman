@@ -1,5 +1,7 @@
+
+
 .img{
-    /* background:linear-gradient(rgb(226, 40, 40)) url("../image/hangman.jpg") no-repeat; */
+    background-image: url("../image/hangman.jpg") no-repeat; 
     height: 600px;
 
 }
@@ -21,7 +23,7 @@ li{
     margin: 10px;
     padding:10px;
     border-radius: 5px;
-    color:rgb(139, 208, 10);
+    color:rgb(15, 15, 14);
     width: 35px;
     height: 35px
 

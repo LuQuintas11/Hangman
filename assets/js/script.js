@@ -15,7 +15,7 @@ let alphabet = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M',
 let wordsSports = words[Math.floor(Math.random() * words.length)]
 let wordsAnimals = wordAnimal[Math.floor(Math.random() * wordAnimal.length)]
 let wordsCinema = wordCinema[Math.floor(Math.random()*wordCinema.length)]
-console.log(wordsCinema)
+console.log(wordsAnimals)
 
 
 function createAlphabet() {
