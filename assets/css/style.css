@@ -1,37 +1,42 @@
-#img{
-    /* background:url("../image/dominatehangman-1600.jpg"); */
-    width: 50%;  
+.img{
+    /* background:linear-gradient(rgb(226, 40, 40)) url("../image/hangman.jpg") no-repeat; */
+    height: 600px;
+
 }
-
-
 
 li{
     list-style-type:none;
     display: inline-block;
-    padding: 20px;
-    font-size: 50px; 
-}
-
-#ul{
-    display: none;
+    padding: 0 10px;
+    font-size: 2.8em; 
+    color: aliceblue;
 }
 
 #button{
-    position: absolute;
-    bottom: 0;
-    left: 400px;
+    margin: 15px auto;
+    padding: 0;
+    max-width: 900px;
 }
-
 .alphabet{
-    background-color: rgb(230, 230, 230);
+    margin: 10px;
+    padding:10px;
+    border-radius: 5px;
+    color:rgb(139, 208, 10);
+    width: 35px;
+    height: 35px
 
 }
 
 #main-div{
-  display: flex;
-  align-items: center;
-  justify-self: center;
+display: flex;
+align-items: center;
+justify-content: center;
+margin-top: 400px;
 }
+
+
+
+
 .modal-bg{
     position: fixed;
     top:0;

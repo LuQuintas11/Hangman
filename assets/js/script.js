@@ -30,7 +30,7 @@ function createAlphabet() {
 }
 createAlphabet();
 
-/*document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", function () {
    console.log("DOM is loaded")
    modalBj.classList.add("bj-active")
    let buttons = document.getElementsByTagName("button");
@@ -51,9 +51,9 @@ createAlphabet();
 
    }
 
-});*/
+});
 
-/*function runGame() {
+function runGame() {
    modalBg.classList.add("bg-active");
 
    modalClose.addEventListener("click", function () {
@@ -61,7 +61,7 @@ createAlphabet();
       window.location.reload();
    })
 
-}*/
+}
 
 
 
@@ -69,7 +69,7 @@ function wordSport() {
 
    for (let i = 0; i < wordsSports.length; i++) {
       let board = document.createElement('li');
-      board.textContent = "__";
+      board.textContent = "_";
       board.className = "blah";
       document.getElementById('main-div').appendChild(board);
    }
@@ -102,7 +102,7 @@ function wordSport() {
 function animalGame() {
    for (let i = 0; i < wordsAnimals.length; i++) {
       let board = document.createElement('li');
-      board.textContent = "__";
+      board.textContent = "_";
       board.className = "blah";
       document.getElementById('main-div').appendChild(board);
    }
@@ -132,7 +132,7 @@ function animalGame() {
 function wordCinemas() {
    for (let i = 0; i < wordsCinema.length; i++) {
       let board = document.createElement('li');
-      board.textContent = "__";
+      board.textContent = "_";
       board.className = "blah";
       document.getElementById('main-div').appendChild(board);
    }
