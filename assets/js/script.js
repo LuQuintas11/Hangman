@@ -30,7 +30,7 @@ function createAlphabet() {
 }
 createAlphabet();
 
-document.addEventListener("DOMContentLoaded", function () {
+/*document.addEventListener("DOMContentLoaded", function () {
    console.log("DOM is loaded")
    modalBj.classList.add("bj-active")
    let buttons = document.getElementsByTagName("button");
@@ -51,9 +51,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
    }
 
-});
+});*/
 
-function runGame() {
+/*function runGame() {
    modalBg.classList.add("bg-active");
 
    modalClose.addEventListener("click", function () {
@@ -61,7 +61,7 @@ function runGame() {
       window.location.reload();
    })
 
-}
+}*/
 
 
 

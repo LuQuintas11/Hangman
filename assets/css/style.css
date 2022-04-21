@@ -28,9 +28,9 @@ li{
 }
 
 #main-div{
-    position: absolute;
-  top: 400px;
-  left:600px;
+  display: flex;
+  align-items: center;
+  justify-self: center;
 }
 .modal-bg{
     position: fixed;
