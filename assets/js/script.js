@@ -13,9 +13,9 @@ let pushAlphabet = [];
 let liveSpan = document.querySelector(".lives")
 let alphabet = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', ];
 let wordsSports = words[Math.floor(Math.random() * words.length)]
-let wordsAnimals = wordAnimal[Math.floor(Math.random() * wordAnimal.length)]
+let wordsAnimals;
 let wordsCinema = wordCinema[Math.floor(Math.random()*wordCinema.length)]
-console.log(wordsAnimals)
+
 
 
 function createAlphabet() {
@@ -38,7 +38,8 @@ document.addEventListener("DOMContentLoaded", function () {
       button.addEventListener("click", function () {
          if (this.getAttribute("data-type") === "animals") {
             modalBj.classList.remove("bj-active")
-            animalGame()
+            let wordsAnimals = wordAnimal[Math.floor(Math.random() * wordAnimal.length)]
+            animalGame(wordsAnimals)
          } else if (this.getAttribute("data-type") === "sports") {
             modalBj.classList.remove("bj-active")
             wordSport()

@@ -1,9 +1,6 @@
 
-
-.img{
-    background-image: url("../image/hangman.jpg") no-repeat; 
-    height: 600px;
-
+body{
+    background-image: url("/assets/image/hangman.webp");
 }
 
 li{
