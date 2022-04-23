@@ -13,7 +13,7 @@ let pushAlphabet = [];
 let liveSpan = document.querySelector(".lives")
 let alphabet = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', ];
 let wordsSports = words[Math.floor(Math.random() * words.length)]
-let wordsAnimals;
+let wordsAnimals = wordAnimal[Math.floor(Math.random()*wordAnimal.length)]
 let wordsCinema = wordCinema[Math.floor(Math.random()*wordCinema.length)]
 
 
@@ -31,7 +31,7 @@ function createAlphabet() {
 createAlphabet();
 
 document.addEventListener("DOMContentLoaded", function () {
-   console.log("DOM is loaded")
+   console.log("DOM is d")
    modalBj.classList.add("bj-active")
    let buttons = document.getElementsByTagName("button");
    for (let button of buttons) {
