@@ -6,7 +6,7 @@ let animals = document.querySelector("#animals");
 
 let words = ["FOOTBALL", "BOXING", "CYCLING", "SWIMMING", "TENNIS", "CLIMBING", "BASKETBALL", "ATHLETICS", "BADMINTON"];
 let wordAnimal = ["CAT", "RABBIT", "LION", "ZEBRA", "HORSE", "TIGER", "BEAR", "FROG", "FROG", "MONKEY", "SNAKE"];
-let wordCinema = ["STAR-WARS", "BATMAN", "THE KING", "JUMANJI", "SPIDERMAN", "VENOM", "FROZEN", "HARRY POTTER"]
+let wordCinema = ["STAR WARS", "BATMAN", "THE KING", "JUMANJI", "SPIDERMAN", "VENOM", "FROZEN", "HARRY-POTTER"]
 
 let pushAlphabet = [];
 
@@ -15,7 +15,7 @@ let alphabet = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M',
 let wordsSports = words[Math.floor(Math.random() * words.length)]
 let wordsAnimals = wordAnimal[Math.floor(Math.random()*wordAnimal.length)]
 let wordsCinema = wordCinema[Math.floor(Math.random()*wordCinema.length)]
-
+console.log(wordsCinema)
 
 
 function createAlphabet() {
@@ -31,7 +31,7 @@ function createAlphabet() {
 createAlphabet();
 
 document.addEventListener("DOMContentLoaded", function () {
-   console.log("DOM is d")
+   console.log("DOM is loaded")
    modalBj.classList.add("bj-active")
    let buttons = document.getElementsByTagName("button");
    for (let button of buttons) {
@@ -70,9 +70,15 @@ function wordSport() {
 
    for (let i = 0; i < wordsSports.length; i++) {
       let board = document.createElement('li');
-      board.textContent = "_";
       board.className = "blah";
       document.getElementById('main-div').appendChild(board);
+      for(let word of wordsSports){
+         if(word===" "){
+            board.textContent=" ";
+         }else {
+            board.textContent = "_"
+         }
+      }
    }
    for (let i = 0; i < alphabet.length; i++) {
       let alpha = document.getElementsByClassName("alphabet")[i];
@@ -103,10 +109,18 @@ function wordSport() {
 function animalGame() {
    for (let i = 0; i < wordsAnimals.length; i++) {
       let board = document.createElement('li');
-      board.textContent = "_";
       board.className = "blah";
       document.getElementById('main-div').appendChild(board);
+      for(let word of wordAnimal){
+         if(word===" "){
+            board.textContent= " ";
+         }else{
+            board.textContent="_"
+         }
+      }
+   
    }
+
    for (let i = 0; i < alphabet.length; i++) {
       let alpha = document.getElementsByClassName("alphabet")[i];
       alpha.addEventListener("click", function (event) {
@@ -133,9 +147,18 @@ function animalGame() {
 function wordCinemas() {
    for (let i = 0; i < wordsCinema.length; i++) {
       let board = document.createElement('li');
-      board.textContent = "_";
-      board.className = "blah";
+      // board.textContent = "_";
+      board.className = "blah"; 
       document.getElementById('main-div').appendChild(board);
+   for(let word of wordCinema){
+      if(word===" "){
+         board.textContent= " ";
+      } else{
+         board.textContent="_"
+      }
+     
+   }
+      
    }
    for (let i = 0; i < alphabet.length; i++) {
       let alpha = document.getElementsByClassName("alphabet")[i];
@@ -172,3 +195,6 @@ function decreaseLifes() {
    }
 
 }
+
+
+
