@@ -9,35 +9,43 @@
   </head>
   
   <body>
-  <!--The rest of the letter space will create with javascript-->
 
-  <div class="modal-bj">
-    <div class="modaj">
-    <h2>Choose a category!</h2>
-    <button id="animals"  data-type="animals">Animals</button>
-    <button class="modal-clos" data-type="cinema">Cinema</button>
-    <button class="modal-clos"  data-type="sports">Sports</button>
-    </div> 
-  </div>
+<div class="img">
+  <div class="spuare">
   <!--Spaces for letters-->
   <ul id="main-div"></ul>
   <!--alphabet-->
  <div id="button"></div>
- <span class="lives">3</span>
- <!--modal winner-->
- <div class="winner">
-   <div class="win">
-     <h2>You won!</h2>
-     <button class="winner-modal" data-type="win">Play again!</button>
-   </div>
-   
+ <span class="lives"></span>
  </div>
+</div>
 
- <div class="modal-bg">
-   <div class="modal">
-   <h2>Game over!</h2>
-   <button class="modal-close">Play</button>
-   </div>
- </div>
+<!--modal winner-->
+<div class="winner">
+  <div class="win">
+    <h2>You won!</h2>
+    <button class="winner-modal" data-type="win">Play again!</button>
+  </div>
+
+</div>
+
+  <div class="modal-bj">
+    <div class="modaj">
+    <p>Hangman is a  word game in which one player has to guess a word that the other player has thought of,
+       by guessing the letters in it. In this case you will play with a computer
+       Every time you guess a wrong letter, you will loose a lives each time. If you guess the word before end the 3 lives you have, you will win!</p>
+       <h2>Choose a category!</h2>
+    <button class="buttonCategory" data-type="animals">Animals</button>
+    <button class="buttonCategory" data-type="cinema">Cinema</button>
+    <button class="buttonCategory"  data-type="sports">Sports</button>
+    </div> 
+  </div>
+<div class="modal-bg">
+  <div class="modal">
+  <h2>Game over!</h2>
+  <button class="modal-close">Play</button>
+  </div>
+</div>
+
   <script src="assets/js/script.js"></script>
   </body>

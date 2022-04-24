@@ -1,8 +1,12 @@
 let modalBg = document.querySelector(".modal-bg");
 let modalClose = document.querySelector(".modal-close");
 
+let body = document.querySelector(".body")
+let img = document.querySelector(".img")
+
+
 let modalBj = document.querySelector(".modal-bj");
-let animals = document.querySelector("#animals");
+
 
 let winModal = document.querySelector(".winner")
 
@@ -12,10 +16,11 @@ let word = ["FOOTBALL", "BOXING", "CYCLING", "SWIMMING", "TENNIS", "CLIMBING", "
 
 let liveSpan = document.querySelector(".lives")
 
+
 let alphabet = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', ];
 let pushAlphabet = [];
 let letter;
-
+/*This function creates the alphabet buttons*/
 function createAlphabet() {
    for (let i = 0; i < alphabet.length; i++) {
       let createButton = document.createElement("button");
@@ -28,6 +33,7 @@ function createAlphabet() {
 }
 createAlphabet();
 
+
 document.addEventListener("DOMContentLoaded", function () {
    console.log("DOM is loaded")
    modalBj.classList.add("bj-active")
@@ -36,6 +42,7 @@ document.addEventListener("DOMContentLoaded", function () {
       button.addEventListener("click", function () {
          if (this.getAttribute("data-type") === "animals") {
             modalBj.classList.remove("bj-active")
+            img.classList.add("imgAnimal")
             let wordsAnimals = wordAnimal[Math.floor(Math.random()*wordAnimal.length)]
             wordGuessed(wordsAnimals)
             console.log(wordsAnimals)
@@ -43,8 +50,10 @@ document.addEventListener("DOMContentLoaded", function () {
             modalBj.classList.remove("bj-active")
             let wordsSports = word[Math.floor(Math.random() * word.length)]
             wordGuessed(wordsSports)
+            img.classList.add("imgSport")
          } else if (this.getAttribute("data-type") === "cinema") {
             modalBj.classList.remove("bj-active")
+            img.classList.add("imgCinema")
             let wordsCinema = wordCinema[Math.floor(Math.random()*wordCinema.length)]
             wordGuessed(wordsCinema)
 
@@ -100,8 +109,9 @@ function wordGuessed(wor) {
                   }
                }
             } else {
-               decreaseLifes()
+              
                letter.removeEventListener("click", e)
+               decreaseLifes()
             }
    
             })  
@@ -112,7 +122,7 @@ function wordGuessed(wor) {
 function letterGuessed(wor, pushAlphabet){ 
 if(wor.length===pushAlphabet.length){
    winModal.classList.add("win-active")
-}
+}}
 
 
 
@@ -120,13 +130,10 @@ lives = 3;
 
 function decreaseLifes() {
    lives--;
-   liveSpan.textContent = lives;
+   liveSpan.textContent=`You have ${lives} left`
    if (lives === 0) {
       lives = 3;
       runGame()
    }
-
 }
-
-
 
