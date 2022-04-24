@@ -5,7 +5,7 @@ let body = document.querySelector(".body")
 let img = document.querySelector(".img")
 
 
-let modalBj = document.querySelector(".modal-bj");
+let modalIn = document.querySelector(".modal-Initiator");
 
 
 let winModal = document.querySelector(".winner")
@@ -36,30 +36,30 @@ createAlphabet();
 
 document.addEventListener("DOMContentLoaded", function () {
    console.log("DOM is loaded")
-   modalBj.classList.add("bj-active")
+   modalIn.classList.add("modalInt")
    let buttons = document.getElementsByTagName("button");
    for (let button of buttons) {
       button.addEventListener("click", function () {
          if (this.getAttribute("data-type") === "animals") {
-            modalBj.classList.remove("bj-active")
+            modalIn.classList.remove("modalInt")
             img.classList.add("imgAnimal")
             let wordsAnimals = wordAnimal[Math.floor(Math.random()*wordAnimal.length)]
             wordGuessed(wordsAnimals)
-            console.log(wordsAnimals)
          } else if (this.getAttribute("data-type") === "sports") {
-            modalBj.classList.remove("bj-active")
+            modalIn.classList.remove("modalInt")
             let wordsSports = word[Math.floor(Math.random() * word.length)]
             wordGuessed(wordsSports)
             img.classList.add("imgSport")
+            console.log(wordsSports)
          } else if (this.getAttribute("data-type") === "cinema") {
-            modalBj.classList.remove("bj-active")
+            modalIn.classList.remove("modalInt")
             img.classList.add("imgCinema")
             let wordsCinema = wordCinema[Math.floor(Math.random()*wordCinema.length)]
             wordGuessed(wordsCinema)
-
+             console.log(wordsCinema)
          }else if (this.getAttribute("data-type")==="win"){
-            winModal.classList.remove("win-active")
-            modalBj.classList.add("bj-active")
+           window.location.reload()
+            
          }
       })
 
@@ -122,6 +122,7 @@ function wordGuessed(wor) {
 function letterGuessed(wor, pushAlphabet){ 
 if(wor.length===pushAlphabet.length){
    winModal.classList.add("win-active")
+   
 }}
 
 
@@ -130,7 +131,7 @@ lives = 3;
 
 function decreaseLifes() {
    lives--;
-   liveSpan.textContent=`You have ${lives} left`
+   liveSpan.textContent=`You have ${lives} shots left`
    if (lives === 0) {
       lives = 3;
       runGame()
