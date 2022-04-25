@@ -77,20 +77,24 @@ function runGame() {
 
 }
 
-
-function wordGuessed(wor) {
-      for (let i = 0; i < wor.length; i++) {
-         let board = document.createElement('li');
-         board.className = "blah";
-         document.getElementById('main-div').appendChild(board);
-         for(let word of wor){
-            if(word===" "){
-               board.textContent=" ";
-            }else {
-               board.textContent = "_"
-            }
+function letterSpaces(){
+   for (let i = 0; i < wor.length; i++) {
+      let board = document.createElement('li');
+      board.className = "blah";
+      document.getElementById('main-div').appendChild(board);
+      for(let word of wor){
+         if(word===" "){
+            board.textContent=" ";
+         }else {
+            board.textContent = "_"
          }
       }
+   }
+}
+letterSpaces()
+
+function wordGuessed(wor) {
+    
       for (let i = 0; i < alphabet.length; i++) {
          let alpha = document.getElementsByClassName("alphabet")[i];
          alpha.addEventListener("click", function e (event) {
