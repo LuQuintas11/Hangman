@@ -6,11 +6,11 @@ let img = document.querySelector(".img")
 
 
 let modalIn = document.querySelector(".modal-Initiator");
-
+let square = document.querySelector(".square")
 
 let winModal = document.querySelector(".winner")
 
-let wordCinema =["STAR WARS", "BATMAN", "THE KING", "JUMANJI", "SPIDERMAN", "VENOM", "FROZEN", "HARRY-POTTER"]
+let wordCinema =["STAR WARS", "BATMAN", "THE KING", "JUMANJI", "SPIDERMAN", "VENOM", "FROZEN", "HARRY POTTER"]
 let wordAnimal =["CAT", "RABBIT", "LION", "ZEBRA", "HORSE", "TIGER", "BEAR", "FROG", "FROG", "MONKEY", "SNAKE"]
 let word = ["FOOTBALL", "BOXING", "CYCLING", "SWIMMING", "TENNIS", "CLIMBING", "BASKETBALL", "ATHLETICS", "BADMINTON"]
 
@@ -37,12 +37,14 @@ createAlphabet();
 document.addEventListener("DOMContentLoaded", function () {
    console.log("DOM is loaded")
    modalIn.classList.add("modalInt")
+   square.classList.add("squareInactive")
    let buttons = document.getElementsByTagName("button");
    for (let button of buttons) {
       button.addEventListener("click", function () {
          if (this.getAttribute("data-type") === "animals") {
             modalIn.classList.remove("modalInt")
             img.classList.add("imgAnimal")
+            square.classList.remove("squareInactive")
             let wordsAnimals = wordAnimal[Math.floor(Math.random()*wordAnimal.length)]
             wordGuessed(wordsAnimals)
          } else if (this.getAttribute("data-type") === "sports") {
@@ -50,10 +52,12 @@ document.addEventListener("DOMContentLoaded", function () {
             let wordsSports = word[Math.floor(Math.random() * word.length)]
             wordGuessed(wordsSports)
             img.classList.add("imgSport")
+            square.classList.remove("squareInactive")
             console.log(wordsSports)
          } else if (this.getAttribute("data-type") === "cinema") {
             modalIn.classList.remove("modalInt")
             img.classList.add("imgCinema")
+            square.classList.remove("squareInactive")
             let wordsCinema = wordCinema[Math.floor(Math.random()*wordCinema.length)]
             wordGuessed(wordsCinema)
              console.log(wordsCinema)
@@ -77,23 +81,23 @@ function runGame() {
 
 }
 
-function letterSpaces(){
+
+
+function wordGuessed(wor) {
+
    for (let i = 0; i < wor.length; i++) {
-      let board = document.createElement('li');
-      board.className = "blah";
+      let board = document.createElement('span');
+      board.className="span"
       document.getElementById('main-div').appendChild(board);
       for(let word of wor){
          if(word===" "){
-            board.textContent=" ";
+            board.innerHTML=" ";
          }else {
-            board.textContent = "_"
+            board.innerHTML="_"
          }
       }
    }
-}
-letterSpaces()
 
-function wordGuessed(wor) {
     
       for (let i = 0; i < alphabet.length; i++) {
          let alpha = document.getElementsByClassName("alphabet")[i];

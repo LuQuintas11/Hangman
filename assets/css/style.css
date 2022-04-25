@@ -37,20 +37,20 @@
 }
 
 
-.spuare{
+.square{
     display:flex;
     flex-direction: column;
     align-items: center;
     background-color: rgba(225, 14, 14, 0.7);
     width: 75%;
-    height: 60%;
-
-    
+    height: 60%;   
 }
 
+.squareInactive{
+    visibility: hidden;
+}
 
-
-li{
+.span{
     list-style-type:none;
     display: inline-block;
     padding: 0 10px;
@@ -59,10 +59,10 @@ li{
 }
 
 #button{
-    margin: 15px auto;
+    margin: 10px ;
     padding: 0;
-    max-width: 900px;
-    margin-top: 10px;
+    
+    
 }
 
 .alphabet{
@@ -74,7 +74,8 @@ li{
     height: 35px;
     font-family: Raleway;
     font-weight: 800;
-  
+    font-size: 1.0em;
+   
 
 
 }
@@ -89,7 +90,7 @@ li{
 display: flex;
 align-items: center;
 justify-content: center;
-margin-top:200px;
+margin-top:150px;
 } 
 
 
@@ -125,6 +126,7 @@ margin-top:200px;
 
 .modal h2{
     padding-top: 40px;
+
 }
 
 .modal-close{
@@ -137,7 +139,7 @@ margin-top:200px;
     left:0;
     width: 100%;
     height: 100vh;
-    background-color:rgb(250, 242, 242);
+    background-color:rgb(250, 242, 242, 0.5);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -154,13 +156,13 @@ margin-top:200px;
 .modalIn{
     background-color: rgba(30, 221, 103, 0.14);
     width: 60%;
-    height: 60%;
+    height: 55%;
     text-align: center;
 }
 
 
 .modalIn h2{
-    padding-top: 40px;
+    padding-top: 10px;
     font-size: 1.7em;
     font-family:Raleway, sans-serif ;
 
@@ -170,7 +172,12 @@ margin-top:200px;
     font-size: 1.5em;
     font-weight: 500;
     font-family: Raleway, sans-serif;
+    margin:15px auto;
+    width: 90%;
+ 
 }
+
+
 .buttonCategory{
     cursor: pointer;
     font-family: Raleway;
@@ -229,3 +236,59 @@ margin-top:200px;
     margin:40px;
     background-color: rgba(225, 14, 14, 0.5);
 }
+
+
+@media (max-width:1200px){
+     .modalIn{
+         width: 65%;
+        height: auto;
+     }
+
+     .square{
+         width: 85%;
+     }
+
+}
+
+@media (max-width:850px){
+     .modalIn{
+         width: 70%;
+         
+     }
+     .modalIn p{
+        
+         font-size: 1.4em;
+     }
+
+     .square{
+         width:90%
+     }
+
+
+     .alphabet{
+         margin:5px;
+     }
+
+     #main-div{
+         width: auto;
+     }
+
+}
+
+@media(max-width:400px){
+#main-div{
+    margin-top: 100px;
+}
+
+.alphabet{
+    width: 30px;
+    height: 30px;
+    font-size: 0.9em;
+}
+
+.square{
+    width: 95%;
+}
+
+}
+
