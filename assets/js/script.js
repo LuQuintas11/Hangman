@@ -14,24 +14,8 @@ let wordCinema =["STAR WARS", "BATMAN", "THE KING", "JUMANJI", "SPIDERMAN", "VEN
 let wordAnimal =["CAT", "RABBIT", "LION", "ZEBRA", "HORSE", "TIGER", "BEAR", "FROG", "FROG", "MONKEY", "SNAKE"]
 let word = ["FOOTBALL", "BOXING", "CYCLING", "SWIMMING", "TENNIS", "CLIMBING", "BASKETBALL", "ATHLETICS", "BADMINTON"]
 
-let liveSpan = document.querySelector(".lives")
-
 
 let alphabet = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', ];
-let pushAlphabet = [];
-let letter;
-/*This function creates the alphabet buttons*/
-function createAlphabet() {
-   for (let i = 0; i < alphabet.length; i++) {
-      let createButton = document.createElement("button");
-      let div = document.getElementById("button");
-      div.appendChild(createButton)
-      createButton.className = "alphabet";
-      createButton.innerHTML = alphabet[i];
-
-   }
-}
-createAlphabet();
 
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -64,12 +48,28 @@ document.addEventListener("DOMContentLoaded", function () {
          }else if (this.getAttribute("data-type")==="win"){
            window.location.reload()
             
+         }else if(this.getAttribute("data-type")==="reset"){
+            window.location.reload()
          }
       })
 
    }
 
 });
+/*This function creates the alphabet buttons*/
+function createAlphabet() {
+   for (let i = 0; i < alphabet.length; i++) {
+      let createButton = document.createElement("button");
+      let div = document.getElementById("button");
+      div.appendChild(createButton)
+      createButton.className = "alphabet";
+      createButton.innerHTML = alphabet[i];   
+
+   }
+}
+createAlphabet();
+
+
 
 function runGame() {
    modalBg.classList.add("bg-active");
@@ -81,7 +81,9 @@ function runGame() {
 
 }
 
-
+/*This function compare*/
+let pushAlphabet = [];
+let letter;
 
 function wordGuessed(wor) {
 
@@ -89,13 +91,11 @@ function wordGuessed(wor) {
       let board = document.createElement('span');
       board.className="span"
       document.getElementById('main-div').appendChild(board);
-      for(let word of wor){
-         if(word===" "){
+         if(word[i]===" "){
             board.innerHTML=" ";
          }else {
             board.innerHTML="_"
          }
-      }
    }
 
     
@@ -109,15 +109,11 @@ function wordGuessed(wor) {
                   if (wor[i] === alphabetValue) {
                    document.getElementById("main-div").childNodes[i].textContent = alphabetValue
                    pushAlphabet.push("alphabetValue")    
-                   
                    letterGuessed(wor, pushAlphabet)
-                   
                    letter.removeEventListener("click", e)
-                 
                   }
                }
             } else {
-              
                letter.removeEventListener("click", e)
                decreaseLifes()
             }
@@ -127,6 +123,8 @@ function wordGuessed(wor) {
 }
 
 
+/*check if the word guessed is the same one that the computer gave*/
+
 function letterGuessed(wor, pushAlphabet){ 
 if(wor.length===pushAlphabet.length){
    winModal.classList.add("win-active")
@@ -135,6 +133,8 @@ if(wor.length===pushAlphabet.length){
 
 
 
+
+let liveSpan = document.querySelector(".lives")
 lives = 3;
 
 function decreaseLifes() {
@@ -145,4 +145,6 @@ function decreaseLifes() {
       runGame()
    }
 }
+decreaseLifes()
+
 

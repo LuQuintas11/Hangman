@@ -1,6 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;1,100&display=swap');
 
-
+.class{
+    color:brown;
+}
 
 .imgCinema{
     background-image: url("../image/cine.webp");
@@ -51,9 +53,8 @@
 }
 
 .span{
-    list-style-type:none;
-    display: inline-block;
-    padding: 0 10px;
+    
+    letter-spacing: 0.4em;
     font-size: 1.7em; 
     color: aliceblue;
 }
@@ -84,6 +85,7 @@
     font-family: Raleway;
     font-weight: 800;
     font-size: 1.3em;
+    position: absolute
 }
 
  #main-div{
@@ -238,6 +240,18 @@ margin-top:150px;
 }
 
 
+.reset{
+      padding:5px;
+      font-size: 1.5em;
+      font-family: Raleway;
+      font-weight: 600;
+      background-color: rgba(225, 14, 14, 0.7);
+      border:none;
+      position:absolute;
+      top:480px;
+      cursor:pointer
+
+}
 @media (max-width:1200px){
      .modalIn{
          width: 65%;
