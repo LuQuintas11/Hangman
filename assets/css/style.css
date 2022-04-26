@@ -54,7 +54,7 @@
     list-style-type:none;
     display: inline-block;
     padding: 0 10px;
-    font-size: 2.8em; 
+    font-size: 1.7em; 
     color: aliceblue;
 }
 
@@ -134,7 +134,7 @@ margin-top:150px;
 }
 
 .modal-Initiator{
-    /*position: fixed;*/
+    position: fixed;
     top:0;
     left:0;
     width: 100%;
@@ -277,7 +277,7 @@ margin-top:150px;
 
 @media(max-width:450px){
 #main-div{
-    margin-top: 100px;
+    margin-top: 70px;
 }
 
 
@@ -297,5 +297,17 @@ margin-top:150px;
     width: 95%;
 }
 
+.modalIn h2{
+    font-size: 1.4em;
+    padding-top:5px;
+}
+.buttonCategory{
+    margin:10px;
+}
 }
 
+@media(max-width:280px){
+    #main-div{
+        margin-top: 50px;
+    }
+}
