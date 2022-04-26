@@ -134,7 +134,7 @@ margin-top:150px;
 }
 
 .modal-Initiator{
-    position: fixed;
+    /*position: fixed;*/
     top:0;
     left:0;
     width: 100%;
@@ -252,7 +252,7 @@ margin-top:150px;
 
 @media (max-width:850px){
      .modalIn{
-         width: 70%;
+         width: 80%;
          
      }
      .modalIn p{
@@ -275,17 +275,24 @@ margin-top:150px;
 
 }
 
-@media(max-width:400px){
+@media(max-width:450px){
 #main-div{
     margin-top: 100px;
 }
+
 
 .alphabet{
     width: 30px;
     height: 30px;
     font-size: 0.9em;
 }
+.modalIn{
+    width:95%;
+}
 
+.buttonCategory{
+    margin-top:10px;
+}
 .square{
     width: 95%;
 }
