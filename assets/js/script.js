@@ -22,6 +22,7 @@ document.addEventListener("DOMContentLoaded", function () {
    console.log("DOM is loaded")
    modalIn.classList.add("modalInt")
    square.classList.add("squareInactive")
+  
    let buttons = document.getElementsByTagName("button");
    for (let button of buttons) {
       button.addEventListener("click", function () {
@@ -87,16 +88,16 @@ let letter;
 
 function wordGuessed(wor) {
 
-   for (let i = 0; i < wor.length; i++) {
-      let board = document.createElement('span');
-      board.className="span"
-      document.getElementById('main-div').appendChild(board);
-         if(word[i]===" "){
-            board.innerHTML=" ";
-         }else {
-            board.innerHTML="_"
-         }
-   }
+   // for (let i = 0; i < wor.length; i++) {
+   //    let board = document.createElement('span');
+   //    board.className="span"
+   //    document.getElementById('main-div').appendChild(board);
+   //       if(word[i]===" "){
+   //          board.innerHTML=" ";
+   //       }else {
+   //          board.innerHTML="_"
+   //       }
+   // }
 
     
       for (let i = 0; i < alphabet.length; i++) {
@@ -146,5 +147,4 @@ function decreaseLifes() {
    }
 }
 decreaseLifes()
-
 
