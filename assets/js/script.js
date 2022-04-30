@@ -10,8 +10,8 @@ let square = document.querySelector(".square")
 
 let winModal = document.querySelector(".winner")
 
-let wordCinema =["STAR WARS", "BATMAN", "THE KING", "JUMANJI", "SPIDERMAN", "VENOM", "FROZEN", "HARRY POTTER"]
-let wordAnimal =["CAT", "RABBIT", "LION", "ZEBRA", "HORSE", "TIGER", "BEAR", "FROG", "FROG", "MONKEY", "SNAKE"]
+let wordCinema = ["STAR WARS", "BATMAN", "THE KING", "JUMANJI", "SPIDERMAN", "VENOM", "FROZEN", "HARRY POTTER"]
+let wordAnimal = ["CAT", "RABBIT", "LION", "ZEBRA", "HORSE", "TIGER", "BEAR", "FROG", "FROG", "MONKEY", "SNAKE"]
 let word = ["FOOTBALL", "BOXING", "CYCLING", "SWIMMING", "TENNIS", "CLIMBING", "BASKETBALL", "ATHLETICS", "BADMINTON"]
 
 
@@ -22,7 +22,7 @@ document.addEventListener("DOMContentLoaded", function () {
    console.log("DOM is loaded")
    modalIn.classList.add("modalInt")
    square.classList.add("squareInactive")
-  
+
    let buttons = document.getElementsByTagName("button");
    for (let button of buttons) {
       button.addEventListener("click", function () {
@@ -30,7 +30,7 @@ document.addEventListener("DOMContentLoaded", function () {
             modalIn.classList.remove("modalInt")
             img.classList.add("imgAnimal")
             square.classList.remove("squareInactive")
-            let wordsAnimals = wordAnimal[Math.floor(Math.random()*wordAnimal.length)]
+            let wordsAnimals = wordAnimal[Math.floor(Math.random() * wordAnimal.length)]
             wordGuessed(wordsAnimals)
          } else if (this.getAttribute("data-type") === "sports") {
             modalIn.classList.remove("modalInt")
@@ -43,13 +43,13 @@ document.addEventListener("DOMContentLoaded", function () {
             modalIn.classList.remove("modalInt")
             img.classList.add("imgCinema")
             square.classList.remove("squareInactive")
-            let wordsCinema = wordCinema[Math.floor(Math.random()*wordCinema.length)]
+            let wordsCinema = wordCinema[Math.floor(Math.random() * wordCinema.length)]
             wordGuessed(wordsCinema)
-             console.log(wordsCinema)
-         }else if (this.getAttribute("data-type")==="win"){
-           window.location.reload()
-            
-         }else if(this.getAttribute("data-type")==="reset"){
+            console.log(wordsCinema)
+         } else if (this.getAttribute("data-type") === "win") {
+            window.location.reload()
+
+         } else if (this.getAttribute("data-type") === "reset") {
             window.location.reload()
          }
       })
@@ -64,7 +64,7 @@ function createAlphabet() {
       let div = document.getElementById("button");
       div.appendChild(createButton)
       createButton.className = "alphabet";
-      createButton.innerHTML = alphabet[i];   
+      createButton.innerHTML = alphabet[i];
 
    }
 }
@@ -88,49 +88,51 @@ let letter;
 
 function wordGuessed(wor) {
 
-   // for (let i = 0; i < wor.length; i++) {
-   //    let board = document.createElement('span');
-   //    board.className="span"
-   //    document.getElementById('main-div').appendChild(board);
-   //       if(word[i]===" "){
-   //          board.innerHTML=" ";
-   //       }else {
-   //          board.innerHTML="_"
-   //       }
-   // }
+   for (let i = 0; i < wor.length; i++) {
+      let board = document.createElement('span');
+      board.className = "span"
+      document.getElementById('main-div').appendChild(board);
+      if (wor[i] === " ") {
+         board.innerHTML = " ";
+      } else {
+         board.innerHTML = "_"
+      }
+   }
 
-    
-      for (let i = 0; i < alphabet.length; i++) {
-         let alpha = document.getElementsByClassName("alphabet")[i];
-         alpha.addEventListener("click", function e (event) {
-          let letter = event.target
-            let alphabetValue = alphabet[i];
-            if (wor.includes(alphabetValue)) {
-               for (let i = 0; i < wor.length; i++) {
-                  if (wor[i] === alphabetValue) {
-                   document.getElementById("main-div").childNodes[i].textContent = alphabetValue
-                   pushAlphabet.push("alphabetValue")    
-                   letterGuessed(wor, pushAlphabet)
-                   letter.removeEventListener("click", e)
-                  }
+
+   for (let i = 0; i < alphabet.length; i++) {
+      let alpha = document.getElementsByClassName("alphabet")[i];
+      alpha.addEventListener("click", function e(event) {
+         let letter = event.target
+         let alphabetValue = alphabet[i];
+         if (wor.includes(alphabetValue)) {
+            for (let i = 0; i < wor.length; i++) {
+               if (wor[i] === alphabetValue) {
+                  document.getElementById("main-div").childNodes[i].textContent = alphabetValue
+                  pushAlphabet.push("alphabetValue")
+                  letterGuessed(wor, pushAlphabet)
+                  letter.removeEventListener("click", e)
                }
-            } else {
-               letter.removeEventListener("click", e)
-               decreaseLifes()
             }
-   
-            })  
-           }
+         } else {
+            letter.removeEventListener("click", e)
+            decreaseLifes()
+         }
+
+      })
+   }
 }
 
 
 /*check if the word guessed is the same one that the computer gave*/
 
-function letterGuessed(wor, pushAlphabet){ 
-if(wor.length===pushAlphabet.length){
-   winModal.classList.add("win-active")
-   
-}}
+function letterGuessed(wor, pushAlphabet) {
+   // Remove all spaces from `wor` before comparing.
+   if (wor.length === pushAlphabet.length) {
+      winModal.classList.add("win-active")
+
+   }
+}
 
 
 
@@ -140,11 +142,10 @@ lives = 3;
 
 function decreaseLifes() {
    lives--;
-   liveSpan.textContent=`You have ${lives} shots left`
+   liveSpan.textContent = `You have ${lives} shots left`
    if (lives === 0) {
       lives = 3;
       runGame()
    }
 }
 decreaseLifes()
-
