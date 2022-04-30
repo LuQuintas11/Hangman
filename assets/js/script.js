@@ -28,7 +28,7 @@ document.addEventListener("DOMContentLoaded", function () {
       button.addEventListener("click", function () {
          if (this.getAttribute("data-type") === "animals") {
             modalIn.classList.remove("modalInt")
-            img.classList.add("imgAnimal")
+            addClass = "imgAnimal"
             square.classList.remove("squareInactive")
             let wordsAnimals = wordAnimal[Math.floor(Math.random() * wordAnimal.length)]
             wordGuessed(wordsAnimals)
@@ -36,12 +36,12 @@ document.addEventListener("DOMContentLoaded", function () {
             modalIn.classList.remove("modalInt")
             let wordsSports = word[Math.floor(Math.random() * word.length)]
             wordGuessed(wordsSports)
-            img.classList.add("imgSport")
+            addClass ="imgSport"
             square.classList.remove("squareInactive")
             console.log(wordsSports)
          } else if (this.getAttribute("data-type") === "cinema") {
             modalIn.classList.remove("modalInt")
-            img.classList.add("imgCinema")
+            addClass = "imgCinema"
             square.classList.remove("squareInactive")
             let wordsCinema = wordCinema[Math.floor(Math.random() * wordCinema.length)]
             wordGuessed(wordsCinema)
@@ -52,6 +52,8 @@ document.addEventListener("DOMContentLoaded", function () {
          } else if (this.getAttribute("data-type") === "reset") {
             window.location.reload()
          }
+
+         img.classList.add(addClass)
       })
 
    }
