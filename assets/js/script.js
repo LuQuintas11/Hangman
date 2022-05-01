@@ -18,11 +18,11 @@ let alphabet = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M',
 
 
  function initGame () {
-   //createAlphabet()
+   createAlphabet()
    modalIn.classList.add("modalInt")
    square.classList.add("squareInactive")
 
-   let buttons = document.getElementsByTagName("button");
+   let buttons = document.getElementsByClassName("buttonCategory");
    for (let button of buttons) {
       button.addEventListener("click", function () {
          if (this.getAttribute("data-type") === "animals") {
@@ -45,12 +45,8 @@ let alphabet = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M',
             randomCategoryWord = wordCinema[Math.floor(Math.random() * wordCinema.length)]
          
             console.log(randomCategoryWord)
-         } else if (this.getAttribute("data-type") === "win") {
-            window.location.reload()
-
-         } else if (this.getAttribute("data-type") === "reset") {
-            window.location.reload()
          }
+          
 
          img.classList.add(addClass)
          wordGuessed(randomCategoryWord)
@@ -65,7 +61,7 @@ let alphabet = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M',
 document.addEventListener("DOMContentLoaded", function() {
    console.log("DOM is loaded")
    initGame();
-  // runGame();
+
 });
 
 /*This function creates the alphabet buttons*/
@@ -81,13 +77,17 @@ function createAlphabet() {
    }
 }
 
-createAlphabet()
+//createAlphabet()
 /*This function compare*/
-let pushAlphabet = [];
-let letter;
 
-let alphabetValue;
-
+let restartGamebuttons = document.getElementsByTagName("button");
+restartGamebuttons.addEventListener("click", function(){
+   if(this.getAttribute("data-type")==="reset"){
+      window.location.reload()
+   } else if(this.getAttribute("data-type")==="win"){
+      window.location.reload()
+   }
+})
 
 
 
@@ -103,6 +103,7 @@ function runGame() {
 
 
 
+let pushAlphabet= [];
 
 function wordGuessed(randomCategoryWord) {
 
@@ -110,17 +111,13 @@ function wordGuessed(randomCategoryWord) {
       let board = document.createElement('span');
       board.className = "span"
       document.getElementById('main-div').appendChild(board);
-      if (randomCategoryWord[i] === " ") {
-         board.innerHTML = " ";
-      } else {
-         board.innerHTML = "_"
-      }
+      board.textContent = "_"
    }
 
    for (let i = 0; i < alphabet.length; i++) {
          let alpha = document.getElementsByClassName("alphabet")[i];
          alpha.addEventListener("click", function e(event) {
-            let letter = event.target
+             event.target
             let alphabetValue = alphabet[i];
             if (randomCategoryWord.includes(alphabetValue)) {
                for (let i = 0; i < randomCategoryWord.length; i++) {
@@ -128,47 +125,22 @@ function wordGuessed(randomCategoryWord) {
                      document.getElementById("main-div").childNodes[i].textContent = alphabetValue
                      pushAlphabet.push("alphabetValue")
                      letterGuessed(randomCategoryWord, pushAlphabet)
-                     letter.removeEventListener("click", e)
+                     //letter.removeEventListener("click", e)
                   }
                }
             } else {
-               letter.removeEventListener("click", e)
+               //letter.removeEventListener("click", e)
                decreaseLifes()
             }
    
          })
    }}
 
-   // for (let i = 0; i < alphabet.length; i++) {
-   //    let alpha = document.getElementsByClassName("alphabet")[i];
-        
-   //      }
-
-   // for (let i = 0; i < alphabet.length; i++) {
-   //    let alpha = document.getElementsByClassName("alphabet")[i];
-   //    alpha.addEventListener("click", function e(event) {
-   //       let letter = event.target
-   //       let alphabetValue = alphabet[i];
-   //       if (wor.includes(alphabetValue)) {
-   //          for (let i = 0; i < wor.length; i++) {
-   //             if (wor[i] === alphabetValue) {
-   //                document.getElementById("main-div").childNodes[i].textContent = alphabetValue
-   //                pushAlphabet.push("alphabetValue")
-   //                letterGuessed(wor, pushAlphabet)
-   //                letter.removeEventListener("click", e)
-   //             }
-   //          }
-   //       } else {
-   //          letter.removeEventListener("click", e)
-   //          decreaseLifes()
-   //       }
-
-   //    })
-   // }
-//}
+ 
 
 
 /*check if the word guessed is the same one that the computer gave*/
+
 
 function letterGuessed(randomCategoryWord, pushAlphabet) {
    // Remove all spaces from `wor` before comparing.
@@ -181,14 +153,14 @@ function letterGuessed(randomCategoryWord, pushAlphabet) {
 
 
 
-// let liveSpan = document.querySelector(".lives")
-// lives = 3;
+let liveSpan = document.querySelector(".lives")
+lives = 3;
 
-// function decreaseLifes() {
-//    lives--;
-//    liveSpan.textContent = `You have ${lives} shots left`
-//    if (lives === 0) {
-//       lives = 3;
-//       runGame()
-//    }
-// }
+function decreaseLifes() {
+   lives--;
+   liveSpan.textContent = `You have ${lives} shots left`
+   if (lives === 0) {
+      lives = 3;
+      runGame()
+   }
+}
