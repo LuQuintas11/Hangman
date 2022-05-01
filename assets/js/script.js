@@ -2,7 +2,10 @@ let modalBg = document.querySelector(".modal-bg");
 let modalClose = document.querySelector(".modal-close");
 
 let body = document.querySelector(".body")
-let img = document.querySelector(".img")
+let img = document.querySelector(".img");
+let liveSpan = document.querySelector(".lives")
+let lives = 3
+let pushAlphabet= [];
 
 let modalIn = document.querySelector(".modal-Initiator");
 let square = document.querySelector(".square")
@@ -16,6 +19,11 @@ let word = ["FOOTBALL", "BOXING", "CYCLING", "SWIMMING", "TENNIS", "CLIMBING", "
 
 let alphabet = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', ];
 
+document.addEventListener("DOMContentLoaded", function() {
+   console.log("DOM is loaded")
+   initGame();
+
+});
 
  function initGame () {
    createAlphabet()
@@ -58,11 +66,6 @@ let alphabet = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M',
 
 };
 
-document.addEventListener("DOMContentLoaded", function() {
-   console.log("DOM is loaded")
-   initGame();
-
-});
 
 /*This function creates the alphabet buttons*/
 function createAlphabet() {
@@ -80,14 +83,7 @@ function createAlphabet() {
 //createAlphabet()
 /*This function compare*/
 
-let restartGamebuttons = document.getElementsByTagName("button");
-restartGamebuttons.addEventListener("click", function(){
-   if(this.getAttribute("data-type")==="reset"){
-      window.location.reload()
-   } else if(this.getAttribute("data-type")==="win"){
-      window.location.reload()
-   }
-})
+
 
 
 
@@ -103,7 +99,6 @@ function runGame() {
 
 
 
-let pushAlphabet= [];
 
 function wordGuessed(randomCategoryWord) {
 
@@ -153,8 +148,8 @@ function letterGuessed(randomCategoryWord, pushAlphabet) {
 
 
 
-let liveSpan = document.querySelector(".lives")
-lives = 3;
+
+
 
 function decreaseLifes() {
    lives--;
@@ -164,3 +159,13 @@ function decreaseLifes() {
       runGame()
    }
 }
+
+let restartGamebuttons = document.getElementsByClassName("restart");
+for(let buttons of restartGamebuttons){
+buttons.addEventListener("click", function(){
+   if(this.getAttribute("data-type")==="reset"){
+      window.location.reload()
+   } else if(this.getAttribute("data-type")==="win"){
+      window.location.reload()
+   }
+})}
