@@ -18,8 +18,8 @@ let word = ["FOOTBALL", "BOXING", "CYCLING", "SWIMMING", "TENNIS", "CLIMBING", "
 let alphabet = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', ];
 
 
-document.addEventListener("DOMContentLoaded", function () {
-   console.log("DOM is loaded")
+ function initGame () {
+   //createAlphabet()
    modalIn.classList.add("modalInt")
    square.classList.add("squareInactive")
 
@@ -27,25 +27,25 @@ document.addEventListener("DOMContentLoaded", function () {
    for (let button of buttons) {
       button.addEventListener("click", function () {
          if (this.getAttribute("data-type") === "animals") {
-            modalIn.classList.remove("modalInt")
+          
             addClass = "imgAnimal"
-            square.classList.remove("squareInactive")
-            let wordsAnimals = wordAnimal[Math.floor(Math.random() * wordAnimal.length)]
-            wordGuessed(wordsAnimals)
+           
+            randomCategoryWord = wordAnimal[Math.floor(Math.random()*wordAnimal.length)]
+            
          } else if (this.getAttribute("data-type") === "sports") {
-            modalIn.classList.remove("modalInt")
-            let wordsSports = word[Math.floor(Math.random() * word.length)]
-            wordGuessed(wordsSports)
+          
+            randomCategoryWord= word[Math.floor(Math.random() * word.length)]
+            
             addClass ="imgSport"
-            square.classList.remove("squareInactive")
-            console.log(wordsSports)
+            
+            
          } else if (this.getAttribute("data-type") === "cinema") {
-            modalIn.classList.remove("modalInt")
+           
             addClass = "imgCinema"
-            square.classList.remove("squareInactive")
-            let wordsCinema = wordCinema[Math.floor(Math.random() * wordCinema.length)]
-            wordGuessed(wordsCinema)
-            console.log(wordsCinema)
+          
+            randomCategoryWord = wordCinema[Math.floor(Math.random() * wordCinema.length)]
+         
+            console.log(randomCategoryWord)
          } else if (this.getAttribute("data-type") === "win") {
             window.location.reload()
 
@@ -54,11 +54,20 @@ document.addEventListener("DOMContentLoaded", function () {
          }
 
          img.classList.add(addClass)
+         wordGuessed(randomCategoryWord)
+         square.classList.remove("squareInactive")
+         modalIn.classList.remove("modalInt")
       })
 
    }
 
+};
+
+document.addEventListener("DOMContentLoaded", function() {
+   initGame();
+  // runGame();
 });
+
 /*This function creates the alphabet buttons*/
 function createAlphabet() {
    for (let i = 0; i < alphabet.length; i++) {
@@ -66,11 +75,19 @@ function createAlphabet() {
       let div = document.getElementById("button");
       div.appendChild(createButton)
       createButton.className = "alphabet";
-      createButton.innerHTML = alphabet[i];
+      createButton.innerHTML = alphabet[i];   
+    
 
    }
 }
-createAlphabet();
+
+createAlphabet()
+/*This function compare*/
+let pushAlphabet = [];
+let letter;
+
+let alphabetValue;
+
 
 
 
@@ -84,53 +101,78 @@ function runGame() {
 
 }
 
-/*This function compare*/
-let pushAlphabet = [];
-let letter;
 
-function wordGuessed(wor) {
 
-   for (let i = 0; i < wor.length; i++) {
+
+function wordGuessed(randomCategoryWord) {
+
+   for (let i = 0; i < randomCategoryWord.length; i++) {
       let board = document.createElement('span');
       board.className = "span"
       document.getElementById('main-div').appendChild(board);
-      if (wor[i] === " ") {
+      if (randomCategoryWord[i] === " ") {
          board.innerHTML = " ";
       } else {
          board.innerHTML = "_"
       }
    }
 
-
    for (let i = 0; i < alphabet.length; i++) {
-      let alpha = document.getElementsByClassName("alphabet")[i];
-      alpha.addEventListener("click", function e(event) {
-         let letter = event.target
-         let alphabetValue = alphabet[i];
-         if (wor.includes(alphabetValue)) {
-            for (let i = 0; i < wor.length; i++) {
-               if (wor[i] === alphabetValue) {
-                  document.getElementById("main-div").childNodes[i].textContent = alphabetValue
-                  pushAlphabet.push("alphabetValue")
-                  letterGuessed(wor, pushAlphabet)
-                  letter.removeEventListener("click", e)
+         let alpha = document.getElementsByClassName("alphabet")[i];
+         alpha.addEventListener("click", function e(event) {
+            let letter = event.target
+            let alphabetValue = alphabet[i];
+            if (randomCategoryWord.includes(alphabetValue)) {
+               for (let i = 0; i < randomCategoryWord.length; i++) {
+                  if (randomCategoryWord[i] === alphabetValue) {
+                     document.getElementById("main-div").childNodes[i].textContent = alphabetValue
+                     pushAlphabet.push("alphabetValue")
+                     letterGuessed(randomCategoryWord, pushAlphabet)
+                     letter.removeEventListener("click", e)
+                  }
                }
+            } else {
+               letter.removeEventListener("click", e)
+               decreaseLifes()
             }
-         } else {
-            letter.removeEventListener("click", e)
-            decreaseLifes()
-         }
+   
+         })
+   }}
 
-      })
-   }
-}
+   // for (let i = 0; i < alphabet.length; i++) {
+   //    let alpha = document.getElementsByClassName("alphabet")[i];
+        
+   //      }
+
+   // for (let i = 0; i < alphabet.length; i++) {
+   //    let alpha = document.getElementsByClassName("alphabet")[i];
+   //    alpha.addEventListener("click", function e(event) {
+   //       let letter = event.target
+   //       let alphabetValue = alphabet[i];
+   //       if (wor.includes(alphabetValue)) {
+   //          for (let i = 0; i < wor.length; i++) {
+   //             if (wor[i] === alphabetValue) {
+   //                document.getElementById("main-div").childNodes[i].textContent = alphabetValue
+   //                pushAlphabet.push("alphabetValue")
+   //                letterGuessed(wor, pushAlphabet)
+   //                letter.removeEventListener("click", e)
+   //             }
+   //          }
+   //       } else {
+   //          letter.removeEventListener("click", e)
+   //          decreaseLifes()
+   //       }
+
+   //    })
+   // }
+//}
 
 
 /*check if the word guessed is the same one that the computer gave*/
 
-function letterGuessed(wor, pushAlphabet) {
+function letterGuessed(randomCategoryWord, pushAlphabet) {
    // Remove all spaces from `wor` before comparing.
-   if (wor.length === pushAlphabet.length) {
+   if (randomCategoryWord.length === pushAlphabet.length) {
       winModal.classList.add("win-active")
 
    }
@@ -139,15 +181,14 @@ function letterGuessed(wor, pushAlphabet) {
 
 
 
-let liveSpan = document.querySelector(".lives")
-lives = 3;
+// let liveSpan = document.querySelector(".lives")
+// lives = 3;
 
-function decreaseLifes() {
-   lives--;
-   liveSpan.textContent = `You have ${lives} shots left`
-   if (lives === 0) {
-      lives = 3;
-      runGame()
-   }
-}
-decreaseLifes()
+// function decreaseLifes() {
+//    lives--;
+//    liveSpan.textContent = `You have ${lives} shots left`
+//    if (lives === 0) {
+//       lives = 3;
+//       runGame()
+//    }
+// }
