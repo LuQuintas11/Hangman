@@ -4,7 +4,6 @@ let modalClose = document.querySelector(".modal-close");
 let body = document.querySelector(".body")
 let img = document.querySelector(".img")
 
-
 let modalIn = document.querySelector(".modal-Initiator");
 let square = document.querySelector(".square")
 
@@ -64,6 +63,7 @@ let alphabet = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M',
 };
 
 document.addEventListener("DOMContentLoaded", function() {
+   console.log("DOM is loaded")
    initGame();
   // runGame();
 });
