@@ -6,7 +6,7 @@ let square = document.querySelector(".square");
 let winModal = document.querySelector(".winner");
 let img = document.querySelector(".img");
 let liveSpan = document.querySelector(".lives");
-console.log("hola")
+
 let lives = 5;
 /*array where letter guessed are pushed*/
 let pushAlphabet = [];
@@ -25,7 +25,7 @@ let alphabet = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M',
 
 // Wait for the DOM to finish loading before running the game
 document.addEventListener("DOMContentLoaded", function () {
-   console.log("DOM is loaded");
+   console.log("DOM is lo=aded");
    initGame();
 
 });
@@ -155,18 +155,7 @@ function letterGuessed(randomCategoryWord, pushAlphabet) {
    }
 }
 
-/**
- * function that shows the game over modal and restart the game
- */
-function gameOver() {
-   modalOver.classList.add("bg-active");
 
-   modalClose.addEventListener("click", function () {
-      modalOver.classList.remove("bg-active");
-      window.location.reload();
-   });
-
-}
 
 /**
  * Function that decrease lifes everytime the player guess the wrong letter
@@ -178,23 +167,36 @@ function decreaseLifes() {
    lives--;
    liveSpan.textContent = `You have ${lives} shots left`;
    if (lives === 0) {
-      lives = 3;
       gameOver();
    }
 
 }
 
+/**
+ * function that shows the game over modal and restart the game
+ */
+ function gameOver() {
+   modalOver.classList.add("bg-active");
+
+   modalClose.addEventListener("click", function () {
+      modalOver.classList.remove("bg-active");
+      window.location.reload();
+   });
+
+}
+
+
 
 /**
  * Function for restart buttons once the player wins or want to choose another category
  */
-// let restartGamebuttons = document.getElementsByClassName("restart");
-// for (let buttons of restartGamebuttons) {
-//    buttons.addEventListener("click", function () {
-//       if (this.getAttribute("data-type") === "reset") {
-//          window.location.reload();
-//       } else if (this.getAttribute("data-type") === "win") {
-//          window.location.reload();
-//       }
-//    });
-// }
+let restartGamebuttons = document.getElementsByClassName("restart");
+for (let buttons of restartGamebuttons) {
+   buttons.addEventListener("click", function () {
+      if (this.getAttribute("data-type") === "reset") {
+         window.location.reload();
+      } else if (this.getAttribute("data-type") === "win") {
+         window.location.reload();
+      }
+   });
+}

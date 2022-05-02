@@ -107,7 +107,7 @@ margin-top:150px;
     align-items: center;
     visibility: hidden;
     opacity: 0;
-    
+    transition: visibility 0s opacity 0,5s;
 }
 
 .bg-active{
@@ -157,7 +157,7 @@ margin-top:150px;
     align-items: center;
     visibility: hidden;
     opacity: 0;
-   
+    transition: visibility 0s opacity 0,5s;
 }
 
  .modalInt{
@@ -212,7 +212,7 @@ margin-top:150px;
     align-items: center;
     visibility: hidden;
     opacity: 0;
-    
+    transition: visibility 0s opacity 0,5s;
 }
 
  .win-active{
@@ -228,7 +228,7 @@ margin-top:150px;
 }
 
 
-.win h2{
+.win-modal h2{
     
     padding-top: 40px;
     font-family: Raleway;
