@@ -17,8 +17,8 @@
 
 .imgSport{
     background-image: url("../image/swimming.jpeg");
+    background-size: cover;
     height: 100%;
-    width: 100%;
     display:flex;
     align-items: center;
     justify-content: center;
@@ -61,6 +61,7 @@
 #button{
     margin: 10px ;
     padding: 0;
+    text-align: center;
     
     
 }
@@ -118,20 +119,33 @@ margin-top:150px;
 }
 
 .modal{
-    background-color: red;
-    width: 30%;
-    height: 30%;
+    background-color:rgba(237, 13, 13, 0.8);
+    width: 50%;
+    height: 50%;
     text-align: center;
 }
 
 
 .modal h2{
     padding-top: 40px;
+    font-family: Raleway;
+    font-size: 1.9em;
+    font-weight: 800;
+    margin-top:70px
 
 }
 
 .modal-close{
     cursor: pointer;
+    font-family: Raleway;
+    font-size: 1.2em;
+    font-weight: 800;
+    padding: 5px;
+    margin:40px;
+    width: 30%;
+    height: 20%;
+    background-color: rgb(11, 104, 47,0.8);
+
 }
 
 .modal-Initiator{
@@ -233,8 +247,10 @@ margin-top:150px;
     font-family: Raleway;
     font-size: 1.2em;
     font-weight: 800;
-    padding: 10px;
+  padding: 5px;
     margin:40px;
+    width: 30%;
+    height: 20%;
     background-color: rgba(225, 14, 14, 0.5);
 }
 
@@ -244,10 +260,10 @@ margin-top:150px;
       font-size: 1.5em;
       font-family: Raleway;
       font-weight: 600;
-      background-color: rgba(225, 14, 14, 0.7);
+      background: none;
       border:none;
       position:absolute;
-      top:500px;
+      top:540px;
       cursor:pointer
 
 }
@@ -286,11 +302,17 @@ margin-top:150px;
          width: auto;
      }
 
+     .win{
+         width: 70%;
+     }
+     .modal{
+         width: 70%;
+     }
 }
 
 @media(max-width:450px){
 #main-div{
-    margin-top: 70px;
+    margin-top: 150px;
 }
 
 
@@ -318,12 +340,27 @@ margin-top:150px;
     margin:10px;
 }
 .span{
-    font-size: 1.5em;
-}
+    font-size: 1.3em;
 }
 
+.win{
+    height: 50%;
+}
+.modal{
+    height: 50%;
+}
+}
 @media(max-width:280px){
     #main-div{
-        margin-top: 50px;
+        margin-top: 100px;
+    }
+
+   #reset{
+    font-size: 1.3em;
+    top: 500px;
+    left: 170px;}
+    
+    .span{
+        font-size: 1.2em;
     }
 }
