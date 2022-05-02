@@ -1,8 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;1,100&display=swap');
 
-.class{
-    color:brown;
-}
 
 .imgCinema{
     background-image: url("../image/cine.webp");
@@ -110,7 +107,7 @@ margin-top:150px;
     align-items: center;
     visibility: hidden;
     opacity: 0;
-    transition: visibility 0s opacity 0,5s;
+    
 }
 
 .bg-active{
@@ -160,7 +157,7 @@ margin-top:150px;
     align-items: center;
     visibility: hidden;
     opacity: 0;
-    transition: visibility 0s opacity 0,5s;
+   
 }
 
  .modalInt{
@@ -215,7 +212,7 @@ margin-top:150px;
     align-items: center;
     visibility: hidden;
     opacity: 0;
-    transition: visibility 0s opacity 0,5s;
+    
 }
 
  .win-active{
