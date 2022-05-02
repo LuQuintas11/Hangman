@@ -6,7 +6,7 @@ let square = document.querySelector(".square");
 let winModal = document.querySelector(".winner");
 let img = document.querySelector(".img");
 let liveSpan = document.querySelector(".lives");
-
+console.log("hola")
 let lives = 5;
 /*array where letter guessed are pushed*/
 let pushAlphabet = [];
@@ -188,13 +188,13 @@ function decreaseLifes() {
 /**
  * Function for restart buttons once the player wins or want to choose another category
  */
-let restartGamebuttons = document.getElementsByClassName("restart");
-for (let buttons of restartGamebuttons) {
-   buttons.addEventListener("click", function () {
-      if (this.getAttribute("data-type") === "reset") {
-         window.location.reload();
-      } else if (this.getAttribute("data-type") === "win") {
-         window.location.reload();
-      }
-   });
-}
+// let restartGamebuttons = document.getElementsByClassName("restart");
+// for (let buttons of restartGamebuttons) {
+//    buttons.addEventListener("click", function () {
+//       if (this.getAttribute("data-type") === "reset") {
+//          window.location.reload();
+//       } else if (this.getAttribute("data-type") === "win") {
+//          window.location.reload();
+//       }
+//    });
+// }
