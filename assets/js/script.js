@@ -6,7 +6,7 @@ let square = document.querySelector(".square");
 let winModal = document.querySelector(".winner");
 let img = document.querySelector(".img");
 let liveSpan = document.querySelector(".lives");
-
+console.log("HOla")
 let lives = 5;
 /*array where letter guessed are pushed*/
 let pushAlphabet = [];
