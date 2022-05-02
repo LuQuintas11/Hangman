@@ -36,11 +36,16 @@
 }
 
 
+.img{
+    height: 800px;
+}
+
+
 .square{
     display:flex;
     flex-direction: column;
-    align-items: center;
-    background-color: rgba(225, 14, 14, 0.7);
+    align-items: center; 
+    background-color: rgba(225, 14, 14, 0.8);
     width: 75%;
     height: 60%;   
 }
@@ -256,11 +261,11 @@ margin-top:150px;
       padding:5px;
       font-size: 1.5em;
       font-family: Raleway;
-      font-weight: 600;
+      font-weight:900;
       background: none;
       border:none;
       position:absolute;
-      top:540px;
+      top:590px;
       cursor:pointer
 
 }
@@ -346,16 +351,16 @@ margin-top:150px;
 .modal{
     height: 50%;
 }
+#reset{
+    font-size: 1.2em
+}
 }
 @media(max-width:280px){
     #main-div{
         margin-top: 100px;
     }
 
-   #reset{
-    font-size: 1.3em;
-    top: 500px;
-    left: 170px;}
+   
     
     .span{
         font-size: 1.2em;

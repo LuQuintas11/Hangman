@@ -1,9 +1,11 @@
 /*returns the elements within the document that matches the below classes*/
-let modalOver = document.querySelector(".modal-over");
+//let modalOver = document.querySelector(".modal-over");
 let modalClose = document.querySelector(".modal-close");
+
 let modalIn = document.querySelector(".modal-Initiator");
 let square = document.querySelector(".square");
-let winModal = document.querySelector(".winner");
+
+//let winModal = document.querySelector(".winner");
 let img = document.querySelector(".img");
 let liveSpan = document.querySelector(".lives");
 console.log("HOla")
